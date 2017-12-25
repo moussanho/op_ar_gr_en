@@ -1,9 +1,17 @@
 #include <cstdio>
+#include <iostream>
+#include <cmath>
+#include <cassert>
 #include "alpha.hpp"
+
+using namespace std;
 
 int main(int argc, char** argv){
 	printf("Projet M1 CHPS");
-	int_t* test=init(4,8) ;
+	int_t * a=init(6,32);int_t *b=init(4,32);
+	int_t* c=substraction(a,b);
+	cout<<"success!"<<endl ; 
+	
 }
 /*Initialisation
 lambda::int_t(size_t size,bool sign):size(size) ,sign(sign){//overloaded constructor 
