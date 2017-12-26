@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -7,12 +8,14 @@
 using namespace std;
 
 int main(int argc, char** argv){
-	printf("Projet M1 CHPS");
+	printf("Projet M1 CHPS\n");
 	int_t * a=init(6,32);int_t *b=init(4,32);
 	int_t* c=substraction(a,b);
+	//for(int i=0;i<(int)c->register_size;cout<<c->register_content[i++]<<endl);
 	cout<<"success!"<<endl ; 
-	
-}
+	while(1) ;
+	return 0;
+	}
 /*Initialisation
 lambda::int_t(size_t size,bool sign):size(size) ,sign(sign){//overloaded constructor 
 	       //this->size=size ; this->sign=sign;

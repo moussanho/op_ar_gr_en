@@ -6,14 +6,11 @@ typedef struct int_t{
 //declaration and initialisation (with a value)
 int_t* init(long int value,size_t size){
 	//assert((int(size)%32)!=0) ; 
-	assert(( pow(2,int(size)) - 1 )<value) ;
+	//assert(( pow(2,int(size)) - 1 )<value) ;
 	int_t* myStruct=(int_t*)malloc(sizeof(int_t));
 	myStruct->register_size=size;
-	myStruct->register_content=(bool*)malloc(size);
-	do{
-		myStruct->register_content[size--]= value%2;
-		value>>1; //division par 2
-	}while(size>=0);
+	myStruct->register_content=(bool*)malloc(sizeof(size));
+	for(;int(size)>0 ; *(myStruct->register_content + int(size)-1)=size%2, size/=2);//shift  operator: >>><<<< 
 	return myStruct;
 }
 /*Initialisation (with a value)   
@@ -37,7 +34,7 @@ int_t* addition(int_t* a,int_t* b){
 }*/
 //subtraction
 int_t* substraction(int_t* a,int_t* b){
-	   assert(a->register_size!=b->register_size);
+	   //assert(a->register_size!=b->register_size);
 	   int_t* result=init(0,a->register_size);
 	   int counter; 
 	   bool overflown=0; 
@@ -53,7 +50,6 @@ int_t* substraction(int_t* a,int_t* b){
 			 a->register_content[counter]&b->register_content[counter] || !(a->register_content[counter] //see next line
 			 &b->register_content[counter]))? ~result->register_content[counter]:result->register_content[counter];
 	   }
-	   return result;
-}
+}return result;
 }
 //multiplication
