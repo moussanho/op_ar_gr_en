@@ -1,21 +1,33 @@
 //Basic structure of our new int type 
 typedef struct int_t{
-	size_t register_size;
+	int register_size;
 	bool* register_content;
 } int_t;
 //declaration and initialisation (with a value)
-int_t* init(long int value,size_t size){
+int_t* init(long int value,int size){
 	//assert((int(size)%32)!=0) ; 
 	//assert(( pow(2,int(size)) - 1 )<value) ;
 	int_t* myStruct=(int_t*)malloc(sizeof(int_t));
 	myStruct->register_size=size;
 	myStruct->register_content=(bool*)malloc(size);
 	//shift  operators using for binary division: >>><<<< 
-	while(value|0){
-		myStruct->register_content[size-1]=value%2 ; value>>=1 ; size-=1;
+	int i=0;
+	while((i<size)){
+		myStruct->register_content[size-i-1]=value%2 ; value>>=1 ; i++;
 		}
+    if(i<=size-1) {
+	   while(i<=size-1){  myStruct->register_content[i]=0; i++;}
+	}
 	return myStruct;
 } 
+//converter before printing
+int converter(int_t* a){
+	int result=0;
+	for(int i=a->register_size-1,j=0 ;i>=0;i--,j++){
+	    if(a->register_content[i]==1) result+=pow(2,j); 
+	}
+	return result ;
+}
 //addition
 int_t* addition(int_t* a,int_t* b){
 	//assert(a->register_size!=b->register_size);
@@ -56,14 +68,6 @@ int_t* substraction(int_t* a,int_t* b){
 			 &b->register_content[counter]))? ~result->register_content[counter]:result->register_content[counter];
 	   }
 }return result;
-}
-//converter before printing
-long int converter(int_t* a){
-	long int result=0;
-	for(int i=0;i<a->register_size-1;i++){
-	    if(a->register_content[i]=1) result+=pow(2,i) ;
-	}
-	return result ;
 }
 //multiplication
 int_t* multiplication(int_t* a, int_t* b){

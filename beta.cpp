@@ -9,12 +9,14 @@ using namespace std;
 
 int main(int argc, char** argv){
 	printf("Projet M1 CHPS\n");
-	int_t * a=init(6,32);int_t *b=init(4,32);
-	int_t* c=substraction(a,b);
-	int_t* d=addition(b,c);
-	int_t* e=multiplication(c,d);
-	int_t* f=division(d,e);
-	cout<<converter(a)<<"::"<<converter(b)<<"::"<<converter(c)<<"::"<<converter(d)<<"::"<<endl;
+	int_t * a=init(9,4);//int_t *b=init(4,32)
+	for(int i = a->register_size-1; i>=0;i--) cout<<a->register_content[i]<<endl;
+	cout<<converter(a)<<endl ; 
+	//int_t* c=substraction(a,b);
+	//int_t* d=addition(b,c);
+	//int_t* e=multiplication(c,d);
+	//int_t* f=division(d,e);
+	//cout<<converter(a)<<"::"<<converter(b)<<"::"<<converter(c)<<"::"<<converter(d)<<"::"<<endl;
 	cout<<"success!"<<endl ; 
 	while(1) ;
 	return 0;
