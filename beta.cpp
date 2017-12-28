@@ -12,7 +12,9 @@ int main(int argc, char** argv){
 	int_t * a=init(6,32);int_t *b=init(4,32);
 	int_t* c=substraction(a,b);
 	int_t* d=addition(b,c);
-	//for(int i=0;i<(int)c->register_size;cout<<c->register_content[i++]<<endl);
+	int_t* e=multiplication(c,d);
+	int_t* f=division(d,e);
+	cout<<converter(a)<<"::"<<converter(b)<<"::"<<converter(c)<<"::"<<converter(d)<<"::"<<endl;
 	cout<<"success!"<<endl ; 
 	while(1) ;
 	return 0;

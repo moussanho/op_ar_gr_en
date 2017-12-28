@@ -57,4 +57,39 @@ int_t* substraction(int_t* a,int_t* b){
 	   }
 }return result;
 }
+//converter before printing
+long int converter(int_t* a){
+	long int result=0;
+	for(int i=0;i<a->register_size-1;i++){
+	    if(a->register_content[i]=1) result+=pow(2,i) ;
+	}
+	return result ;
+}
 //multiplication
+int_t* multiplication(int_t* a, int_t* b){
+	int_t* result=init(0,a->register_size);
+	for(int i=0;i<a->register_size-1;i++){
+		if(*(b->register_content+i)==0) continue;
+		for(int j=0;j+i<=a->register_size-1;j++){
+			result->register_content[i+j]=a->register_content[j] ;
+		}
+		for(int j=0;j<i;j++){
+			result->register_content[j]=0;
+		}
+	}
+	return result ;
+}
+//Division
+int_t* division(int_t* a, int_t* b){
+	int_t* result=init(0,a->register_size);
+	for(int i=0;i<a->register_size;i++){
+		if(*(b->register_content+i)==0) continue;
+		for(int j=0;j+i<=a->register_size;j++){
+			result->register_content[result->register_size-i-j-1]=a->register_content[a->register_size-j-1] ;
+		}
+		for(int j=result->register_size-1;j>i;j--){
+			result->register_content[j]=0; 
+		}
+	}
+	return result ;
+}
