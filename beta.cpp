@@ -1,10 +1,26 @@
 #include <cstdio>
+#include <cstdlib>
+#include <iostream>
+#include <cmath>
+#include <cassert>
 #include "alpha.hpp"
 
+using namespace std;
+
 int main(int argc, char** argv){
-	printf("Projet M1 CHPS");
-	int_t* test=init(4,8) ;
-}
+	printf("Projet M1 CHPS\n");
+	int_t * a=init(9,4);//int_t *b=init(4,32)
+	for(int i = a->register_size-1; i>=0;i--) cout<<a->register_content[i]<<endl;
+	cout<<converter(a)<<endl ; 
+	//int_t* c=substraction(a,b);
+	//int_t* d=addition(b,c);
+	//int_t* e=multiplication(c,d);
+	//int_t* f=division(d,e);
+	//cout<<converter(a)<<"::"<<converter(b)<<"::"<<converter(c)<<"::"<<converter(d)<<"::"<<endl;
+	cout<<"success!"<<endl ; 
+	while(1) ;
+	return 0;
+	}
 /*Initialisation
 lambda::int_t(size_t size,bool sign):size(size) ,sign(sign){//overloaded constructor 
 	       //this->size=size ; this->sign=sign;
