@@ -9,7 +9,7 @@ int_t* init(long int value,int size){
 	//assert(( pow(2,int(size)) - 1 )<value) ;
 	int_t* myStruct=malloc(sizeof(int_t));
 	myStruct->register_size=size;
-	myStruct->register_content=(bool*)malloc(size);
+	myStruct->register_content=malloc(size);
 	//shift  operators using for binary division: >>><<<< 
 	int i=0;
 	while((i<size)){
